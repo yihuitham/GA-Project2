@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./components/App";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
-import CountriesListProvider from "./contexts/Context";
+import { FetchData } from "./pages/FetchData";
+import DataProvider from "./contexts/Context";
 
 ReactDOM.render(
   <Router>
-    <CountriesListProvider>
+    <DataProvider>
       <App />
-    </CountriesListProvider>
+      {/* <FetchData /> */}
+    </DataProvider>
   </Router>,
   document.getElementById("root")
 );

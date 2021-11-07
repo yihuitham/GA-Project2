@@ -8,3 +8,11 @@
 ### Day 2: 01 Nov 2021
 
 \*Done up the styling for the main page
+
+### Day 3: 02 Nov 2021
+
+\*Briefly do up the main page and details page
+
+### Day 4: 04 Nov 2021
+
+\*Sort out the fetching of individual country api

@@ -1,23 +1,16 @@
 import React from "react";
-import { useCountriesList } from "../contexts/Context";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-
 import { Link } from "react-router-dom";
 
-function ActionAreaCard(index, img, country, advice) {
+export default function CountryCard(index, img, country, advice) {
   return (
-    <Card sx={{ maxWidth: 345 }} key={index}>
+    <Card>
       <CardActionArea component={Link} to={`/${country}`}>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
+        <CardMedia component="img" height="140" image={img} alt={country} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {country}
@@ -29,15 +22,4 @@ function ActionAreaCard(index, img, country, advice) {
       </CardActionArea>
     </Card>
   );
-}
-
-export default function MainPage() {
-  const countriesArray = useCountriesList();
-  const Cards = countriesArray.map((element, index) => {
-    return ActionAreaCard(index, "", element.name, "");
-  });
-  console.log(Array.isArray(countriesArray));
-  console.log(countriesArray);
-  //   return ActionAreaCard();
-  return Cards;
 }
