@@ -11,10 +11,10 @@ export default function TempTimeline(month, temp) {
     <TimelineItem>
       <TimelineOppositeContent>{month}</TimelineOppositeContent>
       <TimelineSeparator>
-        <TimelineDot />
+        <TimelineDot variant="outlined" />
         <TimelineConnector />
       </TimelineSeparator>
-      <TimelineContent>{temp}</TimelineContent>
+      <TimelineContent>{`${temp}\u00B0C`}</TimelineContent>
     </TimelineItem>
   );
 }
