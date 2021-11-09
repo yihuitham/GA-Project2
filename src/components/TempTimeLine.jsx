@@ -6,15 +6,31 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
-export default function TempTimeline(month, temp) {
-  return (
-    <TimelineItem>
-      <TimelineOppositeContent>{month}</TimelineOppositeContent>
-      <TimelineSeparator>
-        <TimelineDot variant="outlined" />
-        <TimelineConnector />
-      </TimelineSeparator>
-      <TimelineContent>{`${temp}\u00B0C`}</TimelineContent>
-    </TimelineItem>
-  );
+export default function TempTimeline({ tempData }) {
+  console.log("tempData", tempData);
+  const temperatureLine = tempData.map((temp, i, { length }) => {
+    if (length - 1 !== i) {
+      return (
+        <TimelineItem>
+          <TimelineOppositeContent>{temp[0]}</TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot variant="outlined" />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>{`${temp[1]}\u00B0C`}</TimelineContent>
+        </TimelineItem>
+      );
+    } else {
+      return (
+        <TimelineItem>
+          <TimelineOppositeContent>{temp[0]}</TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot variant="outlined" />
+          </TimelineSeparator>
+          <TimelineContent>{`${temp[1]}\u00B0C`}</TimelineContent>
+        </TimelineItem>
+      );
+    }
+  });
+  return temperatureLine;
 }

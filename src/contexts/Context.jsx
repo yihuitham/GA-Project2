@@ -11,7 +11,11 @@ const getCountriesList = async () => {
     const response = await fetch(listOfCountriesUrl);
     const data = await response.json();
     console.log(data);
-    return data;
+    // return data;
+    const filterData = data.filter((element) => {
+      return element.name !== "Anguilla";
+    });
+    return filterData;
   } catch (err) {
     console.log(err);
   }

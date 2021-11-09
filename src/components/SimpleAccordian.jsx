@@ -4,27 +4,24 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Timeline from "@mui/lab/Timeline";
 import TempTimeline from "./TempTimeLine";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import { Link } from "react-router-dom";
 
-export default function SimpleAccordion({ details, temp }) {
-  const elevenMonths = temp.slice(0, temp.length - 1);
-  const twelvethMonth = temp[temp.length - 1];
-  const plugs = details.electricity.plugs.map((plug) => {
-    return `${plug}, `;
+export default function SimpleAccordion({ details, tempData }) {
+  console.log("temperature", tempData);
+  const plugs = details.electricity.plugs.map((plug, i, { length }) => {
+    if (length - 1 === i) {
+      return `${plug}`;
+    } else {
+      return `${plug}, `;
+    }
   });
-  const vaccinations = details.vaccinations.map((vac) => {
+  const vaccinations = details.vaccinations.map((vac, i) => {
     return (
-      <>
-        <Typography>{vac.name}:</Typography>
+      <div key={i}>
+        <Typography style={{ fontWeight: 600 }}>{vac.name}:</Typography>
         <Typography>{vac.message}</Typography>
-      </>
+      </div>
     );
   });
   return (
@@ -92,20 +89,7 @@ export default function SimpleAccordion({ details, temp }) {
           <Typography>Weather</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Timeline>
-            {elevenMonths.map((data) => {
-              return TempTimeline(data[0], data[1]);
-            })}
-            <TimelineItem>
-              <TimelineOppositeContent>
-                {twelvethMonth[0]}
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot variant="outlined" />
-              </TimelineSeparator>
-              <TimelineContent>{`${twelvethMonth[1]}\u00B0C`}</TimelineContent>
-            </TimelineItem>
-          </Timeline>
+          <TempTimeline tempData={tempData} />
         </AccordionDetails>
       </Accordion>
       <Accordion disabled>

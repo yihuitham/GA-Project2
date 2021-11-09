@@ -1,6 +1,6 @@
 import React from "react";
 import { useCountryDetails } from "../contexts/Context";
-import SimpleAccordion from "./Accordian";
+import SimpleAccordion from "./SimpleAccordian";
 
 const months = [
   "January",
@@ -19,11 +19,11 @@ const months = [
 export default function Information() {
   const [details, setDetails] = useCountryDetails();
   console.log(details);
-  const temperatures = months.map((month) => {
+  const tempData = months.map((month) => {
     const avgTemp = details.weather[month].tAvg;
     return [month, Math.round(avgTemp * 10) / 10];
   });
-  console.log(temperatures);
+  console.log(tempData);
 
-  return <SimpleAccordion details={details} temp={temperatures} />;
+  return <SimpleAccordion details={details} tempData={tempData} />;
 }
