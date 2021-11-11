@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgress, Container, Grid } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import { useCountriesList } from "../contexts/Context";
 import CountryCards from "../components/CountryCards";
 

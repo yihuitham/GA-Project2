@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function CountryCard(index, img, country, advice) {
   return (
-    <Card sx={{ minWidth: 345 }}>
+    <Card>
       <CardActionArea component={Link} to={`/${country}`}>
         <CardMedia component="img" height="140" image={img} alt={country} />
         <CardContent>

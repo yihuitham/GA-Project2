@@ -18,7 +18,7 @@ const fetchDataByQuery = async (query) => {
     const response = await fetch(getURLByQuery(query), options);
     const data = await response.json();
     const img = data.photos[0].src.tiny;
-    return data.photos[0].src.tiny;
+    return img;
     // const test = "test";
     // return test;
   } catch (err) {
