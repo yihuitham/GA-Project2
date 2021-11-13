@@ -12,12 +12,12 @@ export default function CountryCard(index, img, country, advice) {
       <CardActionArea component={Link} to={`/${country}`}>
         <CardMedia component="img" height="140" image={img} alt={country} />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div">
             {country}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          {/* <Typography variant="body2" color="text.secondary">
             Travel advice: {advice}
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
     </Card>

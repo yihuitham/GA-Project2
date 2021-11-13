@@ -93,6 +93,7 @@ export default function ControlledAccordion({ details, tempData }) {
         </AccordionDetails>
       </Accordion>
       <Accordion
+        disabled={details.vaccinations[0] ? false : true}
         expanded={expanded === "vaccinations"}
         onChange={handleChange("vaccinations")}
       >

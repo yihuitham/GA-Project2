@@ -4,7 +4,16 @@ import { useParams } from "react-router-dom";
 import ElevateAppBar from "../components/AppBarElevation";
 import Information from "../components/Information";
 import { useCountryDetails } from "../contexts/Context";
+import { createTheme, ThemeProvider } from "@mui/material";
+import { blueGrey } from "@mui/material/colors";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FFFFFF",
+    },
+  },
+});
 export default function InformationPage() {
   const [details, setDetails] = useCountryDetails();
   const params = useParams();
@@ -29,10 +38,11 @@ export default function InformationPage() {
 
   return (
     <div>
-      {/* <div>{country}</div> */}
-      <ElevateAppBar country={country}>
-        {!details ? <LinearProgress /> : <Information />}
-      </ElevateAppBar>
+      <ThemeProvider theme={theme}>
+        <ElevateAppBar country={country}>
+          {!details ? <LinearProgress /> : <Information />}
+        </ElevateAppBar>
+      </ThemeProvider>
     </div>
   );
 }

@@ -65,7 +65,7 @@ function IntroductionPage() {
           backgroundColor="rgba(255,255,255, 0.5)"
         >
           <Grid item>
-            <Typography variant="h3">Planning to travel somewhere?</Typography>
+            <Typography variant="h2">Planning to travel somewhere?</Typography>
           </Grid>
           <Grid item p={2}>
             <Button

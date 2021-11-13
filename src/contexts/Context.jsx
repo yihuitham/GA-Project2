@@ -48,7 +48,7 @@ export default function DataProvider({ children }) {
   }, []);
 
   return (
-    <CountriesListContext.Provider value={countries}>
+    <CountriesListContext.Provider value={[countries, setCountries]}>
       <CountryDetailsContext.Provider value={[details, setDetails]}>
         {children}
       </CountryDetailsContext.Provider>

@@ -10,14 +10,11 @@ import Container from "@mui/material/Container";
 import Fab from "@mui/material/Fab";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Zoom from "@mui/material/Zoom";
+import SearchInput from "./SearchInput";
 
 function ScrollTop(props) {
   const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
-    // target: window ? window() : undefined,
     disableHysteresis: true,
     threshold: 100,
   });
@@ -50,20 +47,15 @@ function ScrollTop(props) {
 
 ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  //   window: PropTypes.func,
 };
 
-export default function BackToTop(props) {
+export default function AppBarBackToTop(props) {
   return (
     <React.Fragment>
       <CssBaseline />
       <AppBar>
         <Toolbar>
-          <div>
+          <Container sx={{ flexGrow: 1 }}>
             <Typography
               variant="h5"
               component="div"
@@ -74,12 +66,13 @@ export default function BackToTop(props) {
             <Typography variant="caption" component="div">
               Everything you need to know before setting off
             </Typography>
-          </div>
+          </Container>
+          <SearchInput />
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
       <ScrollTop {...props}>
-        <Fab color="primary" size="small" aria-label="scroll back to top">
+        <Fab size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
