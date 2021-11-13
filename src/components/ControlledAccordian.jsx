@@ -8,6 +8,11 @@ import TempTimeline from "./TempTimeLine";
 import { Link } from "react-router-dom";
 
 export default function ControlledAccordion({ details, tempData }) {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
   console.log("temperature", tempData);
   const plugs = details.electricity.plugs.map((plug, i, { length }) => {
     if (length - 1 === i) {
@@ -26,11 +31,14 @@ export default function ControlledAccordion({ details, tempData }) {
   });
   return (
     <div>
-      <Accordion>
+      <Accordion
+        expanded={expanded === "travel-advice"}
+        onChange={handleChange("travel-advice")}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="travel-advice"
+          id="travel-advice"
         >
           <Typography>Travel Advice</Typography>
         </AccordionSummary>
@@ -39,11 +47,14 @@ export default function ControlledAccordion({ details, tempData }) {
           <Typography component={Link}>{details.advise.CA.url}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        expanded={expanded === "electricity"}
+        onChange={handleChange("electricity")}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="electricity"
+          id="electricity"
         >
           <Typography>Electricity</Typography>
         </AccordionSummary>
@@ -53,11 +64,14 @@ export default function ControlledAccordion({ details, tempData }) {
           <Typography>Plugs: {plugs}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        expanded={expanded === "telephone"}
+        onChange={handleChange("telephone")}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="telephone"
+          id="telephone"
         >
           <Typography>Telephone</Typography>
         </AccordionSummary>
@@ -70,21 +84,27 @@ export default function ControlledAccordion({ details, tempData }) {
           <Typography>Fire Ambulance: {details.telephone.fire}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        expanded={expanded === "vaccinations"}
+        onChange={handleChange("vaccinations")}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="vaccinations"
+          id="vaccinations"
         >
           <Typography>Vaccinations</Typography>
         </AccordionSummary>
         <AccordionDetails>{vaccinations}</AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        expanded={expanded === "weather"}
+        onChange={handleChange("weather")}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
+          aria-controls="weather"
+          id="weather"
         >
           <Typography>Weather</Typography>
         </AccordionSummary>
