@@ -21,7 +21,7 @@ export default function MainPage() {
   return (
     <ThemeProvider theme={theme}>
       <AppBarBackToTop />
-      {loaded ? <CountryCards /> : <LinearProgress />}
+      {loaded ? <CountryCards /> : <LinearProgress color="info" />}
     </ThemeProvider>
   );
 }
