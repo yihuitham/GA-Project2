@@ -1,6 +1,6 @@
 import React from "react";
 import { useCountryDetails } from "../contexts/Context";
-import SimpleAccordion from "./SimpleAccordian";
+import ControlledAccordion from "./ControlledAccordian";
 
 const months = [
   "January",
@@ -25,5 +25,5 @@ export default function Information() {
   });
   console.log(tempData);
 
-  return <SimpleAccordion details={details} tempData={tempData} />;
+  return <ControlledAccordion details={details} tempData={tempData} />;
 }

@@ -9,6 +9,7 @@ import {
   responsiveFontSizes,
   useMediaQuery,
 } from "@mui/material";
+import { blueGrey } from "@mui/material/colors";
 import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
 
@@ -72,7 +73,6 @@ function IntroductionPage() {
               size={smallScreen ? "small" : "large"}
               component={Link}
               to="/mainpage"
-              className={classes.button}
             >
               Let's get you ready!
             </Button>

@@ -6,7 +6,7 @@ import CountryCard from "../components/CountryCard";
 export default function CountryCards() {
   const countriesArray = useCountriesList();
   return (
-    <Container>
+    <Container sx={{ pt: 3 }}>
       <Grid container spacing={3}>
         {countriesArray.map((element, index) => {
           return (

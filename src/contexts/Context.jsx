@@ -11,11 +11,11 @@ const getCountriesList = async () => {
     const response = await fetch(listOfCountriesUrl);
     const data = await response.json();
     console.log(data);
-    // return data;
-    const filterData = data.filter((element) => {
-      return element.name !== "Anguilla";
-    });
-    return filterData;
+    return data;
+    // const filterData = data.filter((element) => {
+    //   return element.name !== "Anguilla";
+    // });
+    // return filterData;
   } catch (err) {
     console.log(err);
   }
@@ -35,9 +35,9 @@ export default function DataProvider({ children }) {
   useEffect(() => {
     const getData = async () => {
       const countries = await getCountriesList();
-      const sliceCountries = countries.slice(0, 10);
+      // const sliceCountries = countries.slice(0, 10);
       const countriesWithImages = await Promise.all(
-        sliceCountries.map(async (country) => {
+        countries.map(async (country) => {
           country.img = await fetchDataByQuery(country.name);
           return country;
         })

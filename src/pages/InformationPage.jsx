@@ -1,6 +1,7 @@
-import { CircularProgress } from "@mui/material";
+import { LinearProgress } from "@mui/material";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ElevateAppBar from "../components/AppBarElevation";
 import Information from "../components/Information";
 import { useCountryDetails } from "../contexts/Context";
 
@@ -28,8 +29,10 @@ export default function InformationPage() {
 
   return (
     <div>
-      <div>{country}</div>
-      {!details ? <CircularProgress /> : <Information />}
+      {/* <div>{country}</div> */}
+      <ElevateAppBar country={country}>
+        {!details ? <LinearProgress /> : <Information />}
+      </ElevateAppBar>
     </div>
   );
 }

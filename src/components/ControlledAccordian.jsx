@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import TempTimeline from "./TempTimeLine";
 import { Link } from "react-router-dom";
 
-export default function SimpleAccordion({ details, tempData }) {
+export default function ControlledAccordion({ details, tempData }) {
   console.log("temperature", tempData);
   const plugs = details.electricity.plugs.map((plug, i, { length }) => {
     if (length - 1 === i) {
