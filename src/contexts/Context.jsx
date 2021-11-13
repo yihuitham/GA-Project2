@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { fetchDataByQuery } from "../pages/FetchData";
+import { fetchDataByQuery } from "../contexts/FetchData";
 
 const CountriesListContext = createContext();
+const FilteredListContext = createContext();
 const CountryDetailsContext = createContext();
 
 const listOfCountriesUrl = "https://travelbriefing.org/countries.json";
@@ -25,12 +26,17 @@ export function useCountriesList() {
   return useContext(CountriesListContext);
 }
 
+export function useFilteredList() {
+  return useContext(FilteredListContext);
+}
+
 export function useCountryDetails() {
   return useContext(CountryDetailsContext);
 }
 
 export default function DataProvider({ children }) {
   const [countries, setCountries] = useState("");
+  const [filteredList, setFilteredList] = useState("");
   const [details, setDetails] = useState(null);
   useEffect(() => {
     const getData = async () => {
@@ -43,15 +49,18 @@ export default function DataProvider({ children }) {
         })
       );
       setCountries(countriesWithImages);
+      setFilteredList(countriesWithImages);
     };
     getData();
   }, []);
 
   return (
     <CountriesListContext.Provider value={[countries, setCountries]}>
-      <CountryDetailsContext.Provider value={[details, setDetails]}>
-        {children}
-      </CountryDetailsContext.Provider>
+      <FilteredListContext.Provider value={[filteredList, setFilteredList]}>
+        <CountryDetailsContext.Provider value={[details, setDetails]}>
+          {children}
+        </CountryDetailsContext.Provider>
+      </FilteredListContext.Provider>
     </CountriesListContext.Provider>
   );
 }

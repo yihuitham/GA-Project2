@@ -2,22 +2,37 @@ import React, { useEffect, useRef, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
-import { useCountriesList } from "../contexts/Context";
+import { useCountriesList, useFilteredList } from "../contexts/Context";
 
 export default function SearchInput() {
   const [countries, setCountries] = useCountriesList();
+  const [filteredList, setFilteredList] = useFilteredList();
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
   const inputValue = useRef("");
+  const [input, setInput] = useState("");
 
   const handleChange = () => {
     console.log(inputValue.current.value);
     let search = inputValue.current.value;
+
+    if (search === null) {
+      setFilteredList(countries);
+    } else {
+      let filter = countries.filter((country) => {
+        return country.name.toLowerCase().includes(search.toLowerCase());
+      });
+      setFilteredList(filter);
+    }
+  };
+
+  const handleSelect = (selected) => {
+    console.log(selected);
     let filter = countries.filter((country) => {
-      return country.name.toLowerCase().includes(search.toLowerCase());
+      return country.name.includes(selected);
     });
-    console.log("filter", filter);
+    setFilteredList(filter);
   };
 
   useEffect(() => {
@@ -73,6 +88,16 @@ export default function SearchInput() {
           onChange={handleChange}
         />
       )}
+      onInputChange={(event, newInputValue, reason) => {
+        if (reason === "clear") {
+          console.log("reset");
+          setFilteredList(countries);
+          return;
+        } else {
+          console.log("oninputchange", newInputValue);
+          handleSelect(newInputValue);
+        }
+      }}
     />
   );
 }
