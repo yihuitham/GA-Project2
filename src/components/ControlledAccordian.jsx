@@ -8,6 +8,7 @@ import TempTimeline from "./TempTimeLine";
 import { Link } from "react-router-dom";
 
 export default function ControlledAccordion({ details, tempData }) {
+  const available = true;
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -32,6 +33,7 @@ export default function ControlledAccordion({ details, tempData }) {
   return (
     <div>
       <Accordion
+        disabled={details.advise.UA ? false : true}
         expanded={expanded === "travel-advice"}
         onChange={handleChange("travel-advice")}
       >
@@ -42,10 +44,16 @@ export default function ControlledAccordion({ details, tempData }) {
         >
           <Typography>Travel Advice</Typography>
         </AccordionSummary>
-        <AccordionDetails>
-          <Typography>{details.advise.UA.advise}</Typography>
-          <Typography component={Link}>{details.advise.CA.url}</Typography>
-        </AccordionDetails>
+        {details.advise.UA ? (
+          <>
+            <AccordionDetails>
+              <Typography>{details.advise.UA.advise}</Typography>
+              <Typography component={Link}>{details.advise.CA.url}</Typography>
+            </AccordionDetails>
+          </>
+        ) : (
+          <></>
+        )}
       </Accordion>
       <Accordion
         expanded={expanded === "electricity"}
@@ -111,15 +119,6 @@ export default function ControlledAccordion({ details, tempData }) {
         <AccordionDetails>
           <TempTimeline tempData={tempData} />
         </AccordionDetails>
-      </Accordion>
-      <Accordion disabled>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography>Disabled Accordion</Typography>
-        </AccordionSummary>
       </Accordion>
     </div>
   );
