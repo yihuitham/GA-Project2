@@ -5,11 +5,18 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useCountriesList, useFilteredList } from "../contexts/Context";
 
 export default function CountryCard(index, img, country, advice) {
+  const [countries, setCountries] = useCountriesList();
+  const [filteredList, setFilteredList] = useFilteredList();
   return (
     <Card>
-      <CardActionArea component={Link} to={`/${country}`}>
+      <CardActionArea
+        component={Link}
+        to={`/${country}`}
+        onClick={() => setFilteredList(countries)}
+      >
         <CardMedia component="img" height="140" image={img} alt={country} />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
