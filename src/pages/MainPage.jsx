@@ -9,7 +9,7 @@ import { blueGrey } from "@mui/material/colors";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#FFFFFF",
+      main: blueGrey[50],
     },
   },
 });
@@ -21,7 +21,11 @@ export default function MainPage() {
   return (
     <ThemeProvider theme={theme}>
       <AppBarBackToTop />
-      {loaded ? <CountryCards /> : <LinearProgress color="info" />}
+      {loaded ? (
+        <CountryCards />
+      ) : (
+        <LinearProgress sx={{ bgcolor: blueGrey[500] }} />
+      )}
     </ThemeProvider>
   );
 }

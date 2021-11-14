@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useCountriesList, useFilteredList } from "../contexts/Context";
+import { blueGrey } from "@mui/material/colors";
 
 export default function CountryCard(index, img, country, advice) {
   const [countries, setCountries] = useCountriesList();
@@ -18,7 +19,11 @@ export default function CountryCard(index, img, country, advice) {
         onClick={() => setFilteredList(countries)}
       >
         <CardMedia component="img" height="140" image={img} alt={country} />
-        <CardContent>
+        <CardContent
+          sx={{
+            bgcolor: blueGrey[50],
+          }}
+        >
           <Typography gutterBottom variant="h6" component="div">
             {country}
           </Typography>

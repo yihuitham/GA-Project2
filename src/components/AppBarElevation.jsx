@@ -44,9 +44,6 @@ export default function ElevateAppBar({ country, children }, props) {
       </AppBar>
       {/* </ElevationScroll> */}
       <Toolbar />
-      <Container>
-        <Box sx={{ my: 2 }}>{children}</Box>
-      </Container>
     </React.Fragment>
   );
 }

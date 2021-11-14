@@ -9,9 +9,7 @@ import { blueGrey } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: "#FFFFFF",
-    },
+    primary: { main: blueGrey[50] },
   },
 });
 export default function InformationPage() {
@@ -39,9 +37,8 @@ export default function InformationPage() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <ElevateAppBar country={country}>
-          {!details ? <LinearProgress /> : <Information />}
-        </ElevateAppBar>
+        <ElevateAppBar country={country} />
+        {!details ? <LinearProgress /> : <Information />}
       </ThemeProvider>
     </div>
   );

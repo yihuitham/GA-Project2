@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useCountriesList, useFilteredList } from "../contexts/Context";
+import { color } from "@mui/system";
 
 export default function SearchInput() {
   const [countries, setCountries] = useCountriesList();
@@ -76,6 +77,7 @@ export default function SearchInput() {
       loading={loading}
       renderInput={(params) => (
         <TextField
+          sx={{ bgcolor: "white" }}
           {...params}
           label="Search"
           InputProps={{

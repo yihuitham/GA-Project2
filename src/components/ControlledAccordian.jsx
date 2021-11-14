@@ -6,6 +6,25 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import TempTimeline from "./TempTimeLine";
 import { Link } from "react-router-dom";
+import { blueGrey } from "@mui/material/colors";
+import { Container } from "@mui/material";
+import { styled } from "@mui/system";
+
+const StyledAccordian = styled(Accordion)`
+  margin-bottom: 3px;
+`;
+
+const StyledAccordianSummary = styled(AccordionSummary)`
+  background-color: #607d8b;
+  color: #ffffff;
+  :active {
+    background-color: #b2dfdb;
+  }
+`;
+
+const StyledExpandIcon = styled(ExpandMoreIcon)`
+  color: #ffffff;
+`;
 
 export default function ControlledAccordion({ details, tempData }) {
   const available = true;
@@ -31,19 +50,19 @@ export default function ControlledAccordion({ details, tempData }) {
     );
   });
   return (
-    <div>
-      <Accordion
+    <Container sx={{ my: 2 }}>
+      <StyledAccordian
         disabled={details.advise.UA ? false : true}
         expanded={expanded === "travel-advice"}
         onChange={handleChange("travel-advice")}
       >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+        <StyledAccordianSummary
+          expandIcon={<StyledExpandIcon />}
           aria-controls="travel-advice"
           id="travel-advice"
         >
           <Typography>Travel Advice</Typography>
-        </AccordionSummary>
+        </StyledAccordianSummary>
         {details.advise.UA ? (
           <>
             <AccordionDetails>
@@ -54,35 +73,35 @@ export default function ControlledAccordion({ details, tempData }) {
         ) : (
           <></>
         )}
-      </Accordion>
-      <Accordion
+      </StyledAccordian>
+      <StyledAccordian
         expanded={expanded === "electricity"}
         onChange={handleChange("electricity")}
       >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+        <StyledAccordianSummary
+          expandIcon={<StyledExpandIcon />}
           aria-controls="electricity"
           id="electricity"
         >
           <Typography>Electricity</Typography>
-        </AccordionSummary>
+        </StyledAccordianSummary>
         <AccordionDetails>
           <Typography>{`Voltage: ${details.electricity.voltage}V`}</Typography>
           <Typography>{`Frequency: ${details.electricity.frequency}Hz`}</Typography>
           <Typography>Plugs: {plugs}</Typography>
         </AccordionDetails>
-      </Accordion>
-      <Accordion
+      </StyledAccordian>
+      <StyledAccordian
         expanded={expanded === "telephone"}
         onChange={handleChange("telephone")}
       >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+        <StyledAccordianSummary
+          expandIcon={<StyledExpandIcon />}
           aria-controls="telephone"
           id="telephone"
         >
           <Typography>Telephone</Typography>
-        </AccordionSummary>
+        </StyledAccordianSummary>
         <AccordionDetails>
           <Typography>
             Calling code: +{details.telephone.calling_code}
@@ -91,36 +110,36 @@ export default function ControlledAccordion({ details, tempData }) {
           <Typography>Ambulance: {details.telephone.ambulance}</Typography>
           <Typography>Fire Ambulance: {details.telephone.fire}</Typography>
         </AccordionDetails>
-      </Accordion>
-      <Accordion
+      </StyledAccordian>
+      <StyledAccordian
         disabled={details.vaccinations[0] ? false : true}
         expanded={expanded === "vaccinations"}
         onChange={handleChange("vaccinations")}
       >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+        <StyledAccordianSummary
+          expandIcon={<StyledExpandIcon />}
           aria-controls="vaccinations"
           id="vaccinations"
         >
           <Typography>Vaccinations</Typography>
-        </AccordionSummary>
+        </StyledAccordianSummary>
         <AccordionDetails>{vaccinations}</AccordionDetails>
-      </Accordion>
-      <Accordion
+      </StyledAccordian>
+      <StyledAccordian
         expanded={expanded === "weather"}
         onChange={handleChange("weather")}
       >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+        <StyledAccordianSummary
+          expandIcon={<StyledExpandIcon />}
           aria-controls="weather"
           id="weather"
         >
           <Typography>Weather</Typography>
-        </AccordionSummary>
+        </StyledAccordianSummary>
         <AccordionDetails>
           <TempTimeline tempData={tempData} />
         </AccordionDetails>
-      </Accordion>
-    </div>
+      </StyledAccordian>
+    </Container>
   );
 }
