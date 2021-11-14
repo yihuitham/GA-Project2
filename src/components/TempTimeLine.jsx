@@ -5,6 +5,7 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import { AcUnitOutlined, BeachAccess, WbSunny } from "@mui/icons-material";
 
 export default function TempTimeline({ tempData }) {
   console.log("tempData", tempData);
@@ -14,7 +15,12 @@ export default function TempTimeline({ tempData }) {
         <TimelineItem>
           <TimelineOppositeContent>{temp[0]}</TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot variant="outlined" />
+            {/* <TimelineDot variant="outlined" /> */}
+            {temp[1] < 10 ? (
+              <AcUnitOutlined sx={{ my: 1 }} />
+            ) : (
+              <WbSunny sx={{ my: 1 }} />
+            )}
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>{`${temp[1]}\u00B0C`}</TimelineContent>
@@ -25,7 +31,11 @@ export default function TempTimeline({ tempData }) {
         <TimelineItem>
           <TimelineOppositeContent>{temp[0]}</TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot variant="outlined" />
+            {temp[1] < 10 ? (
+              <AcUnitOutlined sx={{ my: 1 }} />
+            ) : (
+              <WbSunny sx={{ my: 1 }} />
+            )}
           </TimelineSeparator>
           <TimelineContent>{`${temp[1]}\u00B0C`}</TimelineContent>
         </TimelineItem>
