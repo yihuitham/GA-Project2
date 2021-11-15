@@ -1,6 +1,6 @@
 # Project 2 - Travel Briefing
 
-### About
+## About
 
 This website has a list of countries for you to choose from. It provides you with the following information on each country:
 
