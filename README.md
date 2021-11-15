@@ -10,7 +10,7 @@ This website has a list of countries for you to choose from. It provides you wit
 - Recommended vaccinations to get before visiting the country e.g. Hepatitis A, Malaria
 - Weather, average temperature for each month
 
-### Challenges
+#### Challenges
 
 - integrating two APIs in order to provide an image for each country - as Travel Briefing API does not provide images for each country
 - learning to use Material UI
