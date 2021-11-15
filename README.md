@@ -10,6 +10,16 @@ This website has a list of countries for you to choose from. It provides you wit
 - Recommended vaccinations to get before visiting the country e.g. Hepatitis A, Malaria
 - Weather, average temperature for each month
 
+## APIs
+
+- [https://travelbriefing.org/](https://travelbriefing.org/)
+- [https://pixabay.com/](https://pixabay.com/)
+
+#### Image Credits
+
+- [happy-family-travelling-by-car-vector](https://media.istockphoto.com/vectors/happy-family-travelling-by-car-vector-id1280010427?k=20&m=1280010427&s=612x612&w=0&h=TiC_ki6e-3dwMgPw2u-ww9oNCoL9O7nV-rJuTed2p3w=)
+- [favicon](https://favicon.io/)
+
 ## Challenges
 
 - integrating two APIs in order to provide an image for each country - as Travel Briefing API does not provide images for each country
