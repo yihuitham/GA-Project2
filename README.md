@@ -14,7 +14,7 @@ This website has a list of countries for you to choose from. It provides you wit
 
 - [https://travelbriefing.org/](https://travelbriefing.org/)
 - [https://pixabay.com/](https://pixabay.com/)
-- [https://www.pexels.com/api/](https://www.pexels.com/api/)
+- [https://www.pexels.com/](https://www.pexels.com/api/)
 
 ## Challenges
 
