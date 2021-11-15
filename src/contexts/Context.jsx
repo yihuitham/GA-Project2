@@ -1,22 +1,34 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { fetchDataByQuery } from "../contexts/FetchData";
+import { fetchPixabayByQuery } from "./PixabayData";
 
 const CountriesListContext = createContext();
 const FilteredListContext = createContext();
 const CountryDetailsContext = createContext();
 
 const listOfCountriesUrl = "https://travelbriefing.org/countries.json";
+const countriesToExclude = [
+  "Anguilla",
+  "American Samoa",
+  "Bouvet Island",
+  "Cameroon",
+  "Central African Republic",
+  "Cocos Islands",
+  "Congo-Brazzaville",
+  "Congo-Kinshasa",
+];
 
 const getCountriesList = async () => {
   try {
     const response = await fetch(listOfCountriesUrl);
     const data = await response.json();
     console.log(data);
-    return data;
-    // const filterData = data.filter((element) => {
-    //   return element.name !== "Anguilla";
-    // });
-    // return filterData;
+    const filterData = data.filter((country) => {
+      return !countriesToExclude.find((xCountry) => {
+        return xCountry === country.name;
+      });
+    });
+    return filterData;
   } catch (err) {
     console.log(err);
   }
@@ -41,10 +53,11 @@ export default function DataProvider({ children }) {
   useEffect(() => {
     const getData = async () => {
       const countries = await getCountriesList();
-      // const sliceCountries = countries.slice(0, 10);
+      const sliceCountries = countries.slice(0, 50);
       const countriesWithImages = await Promise.all(
-        countries.map(async (country) => {
-          country.img = await fetchDataByQuery(country.name);
+        sliceCountries.map(async (country) => {
+          country.img = await fetchPixabayByQuery(country.name);
+          console.log(country);
           return country;
         })
       );

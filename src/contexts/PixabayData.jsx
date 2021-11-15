@@ -17,21 +17,22 @@ var requestOptions = {
 const getURLByQuery = (query) =>
   `https://pixabay.com/api/?key=${API_key}&q=${query}+travel&image_type=photo`;
 
-const fetchDataByQuery = async (query) => {
+const fetchPixabayByQuery = async (query) => {
   try {
     const response = await fetch(getURLByQuery(query), requestOptions);
     const data = await response.json();
-    return data;
+    const randomIndex = Math.floor(Math.random() * data.hits.length);
+    return data.hits[randomIndex].largeImageURL;
   } catch (err) {
     console.log(err);
   }
 };
-export default function PixabayData() {
+function PixabayData() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetchDataByQuery("Afghanistan");
+      const response = await fetchPixabayByQuery("Afghanistan");
       setData(response);
       console.log(response);
     };
@@ -41,8 +42,10 @@ export default function PixabayData() {
   return (
     <div>
       <h1>Test Pixabay Data</h1>
-      <div>{JSON.stringify(data.hits[0].largeImageURL)}</div>
-      {/* <div>{data}</div> */}
+      <div>{JSON.stringify(data)}</div>
+      <img src={data} />
     </div>
   );
 }
+
+export { fetchPixabayByQuery, PixabayData };
