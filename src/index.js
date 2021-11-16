@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 // import { FetchData } from "./pages/FetchData";
 import DataProvider from "./contexts/Context";
-import GoogleData from "./contexts/Google";
 import { PixabayData } from "./contexts/PixabayData";
 
 ReactDOM.render(
@@ -14,7 +13,6 @@ ReactDOM.render(
     <DataProvider>
       <App />
       {/* <FetchData /> */}
-      {/* <GoogleData /> */}
       {/* <PixabayData /> */}
     </DataProvider>
   </Router>,

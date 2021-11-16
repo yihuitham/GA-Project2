@@ -67,7 +67,9 @@ export default function ControlledAccordion({ details, tempData }) {
           <>
             <AccordionDetails>
               <Typography>{details.advise.UA.advise}</Typography>
-              <Typography component={Link}>{details.advise.CA.url}</Typography>
+              <a href={details.advise.CA.url} target="_blank">
+                {details.advise.CA.url}
+              </a>
             </AccordionDetails>
           </>
         ) : (
