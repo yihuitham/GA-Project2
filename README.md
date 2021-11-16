@@ -1,5 +1,9 @@
 # Project 2 - Travel Briefing
 
+## Website
+
+[https://yihuitham.github.io/GA-Project2/](https://yihuitham.github.io/GA-Project2/)
+
 ## About
 
 This website has a list of countries for you to choose from. It provides you with the following information on each country:
