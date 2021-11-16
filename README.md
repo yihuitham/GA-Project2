@@ -4,7 +4,7 @@
 
 This website has a list of countries for you to choose from. It provides you with the following information on each country:
 
-- Travel advice e.g. do not travel, reconsider your need to travel, etc
+- Travel advice (e.g. do not travel, reconsider your need to travel) and a link for more info
 - Electricity e.g. voltage, frequency and types of plugs
 - Telephone e.g. calling code, emergency hotlines
 - Recommended vaccinations to get before visiting the country e.g. Hepatitis A, Malaria
