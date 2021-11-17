@@ -15,7 +15,6 @@ function App() {
         <Route exact path="/" component={IntroductionPage} />
         <Route path="/mainpage" component={MainPage} />
         <Route exact path="/:destination" component={InformationPage} />
-        {/* <Route exact path="/stocks/:symbol" component={Stock} /> */}
         <Redirect to="/" />
       </Switch>
     </main>
