@@ -3,15 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 // import { FetchData } from "./pages/FetchData";
 import DataProvider from "./contexts/Context";
 import { PixabayData } from "./contexts/PixabayData";
+import AppFirebase from "./AppFirebase";
 
 ReactDOM.render(
   <Router>
     <DataProvider>
       <App />
+      {/* <AppFirebase /> */}
       {/* <FetchData /> */}
       {/* <PixabayData /> */}
     </DataProvider>
