@@ -12,11 +12,15 @@ function App() {
   return (
     <main>
       <Switch>
-        <Route exact path="/" component={IntroductionPage} />
-        <Route path="/mainpage" component={MainPage} />
-        <Route exact path="/:destination" component={InformationPage} />
+        <Route exact path="/GA-Project2/" component={IntroductionPage} />
+        <Route path="/GA-Project2/mainpage" component={MainPage} />
+        <Route
+          exact
+          path="/GA-Project2/:destination"
+          component={InformationPage}
+        />
         {/* <Route exact path="/stocks/:symbol" component={Stock} /> */}
-        <Redirect to="/" />
+        <Redirect to="/GA-Project2/" />
       </Switch>
     </main>
   );
