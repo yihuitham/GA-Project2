@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 import { blueGrey } from "@mui/material/colors";
 import { Container } from "@mui/material";
 import { styled } from "@mui/system";
-import TravelAdviceDetails from "./TravelAdviceDetails";
+import TravelAdviceDetails from "./DetailsTravelAdvise";
+import DetailsElectricity from "./DetailsElectricity";
 
 const StyledAccordian = styled(Accordion)`
   margin-bottom: 3px;
@@ -35,13 +36,7 @@ export default function ControlledAccordion({ details, tempData }) {
     setExpanded(isExpanded ? panel : false);
   };
   console.log("temperature", tempData);
-  const plugs = details.electricity.plugs.map((plug, i, { length }) => {
-    if (length - 1 === i) {
-      return `${plug}`;
-    } else {
-      return `${plug}, `;
-    }
-  });
+
   const vaccinations = details.vaccinations.map((vac, i) => {
     return (
       <div key={i}>
@@ -81,11 +76,7 @@ export default function ControlledAccordion({ details, tempData }) {
         >
           <Typography>Electricity</Typography>
         </StyledAccordianSummary>
-        <AccordionDetails>
-          <Typography>{`Voltage: ${details.electricity.voltage}V`}</Typography>
-          <Typography>{`Frequency: ${details.electricity.frequency}Hz`}</Typography>
-          <Typography>Plugs: {plugs}</Typography>
-        </AccordionDetails>
+        <DetailsElectricity electricity={details.electricity} />
       </StyledAccordian>
       <StyledAccordian
         expanded={expanded === "telephone"}
