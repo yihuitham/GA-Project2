@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useCountriesList, useFilteredList } from "../contexts/Context";
+import React, { useState } from "react";
+import { useFilteredList } from "../contexts/Context";
 import CountryCards from "../components/CountryCards";
 import AppBarBackToTop from "../components/AppBarBackToTop";
 import LinearProgress from "@mui/material/LinearProgress";

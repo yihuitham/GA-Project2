@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { fetchDataByQuery } from "../contexts/FetchData";
+// import { fetchDataByQuery } from "../contexts/FetchData";
 import { fetchPixabayByQuery } from "./PixabayData";
 
 const CountriesListContext = createContext();

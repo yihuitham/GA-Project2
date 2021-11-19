@@ -4,9 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter as Router } from "react-router-dom";
-// import { FetchData } from "./pages/FetchData";
 import DataProvider from "./contexts/Context";
-import { PixabayData } from "./contexts/PixabayData";
 import AppFirebase from "./AppFirebase";
 
 ReactDOM.render(
@@ -14,8 +12,6 @@ ReactDOM.render(
     <DataProvider>
       <App />
       {/* <AppFirebase /> */}
-      {/* <FetchData /> */}
-      {/* <PixabayData /> */}
     </DataProvider>
   </Router>,
   document.getElementById("root")
