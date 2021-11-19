@@ -1,6 +1,6 @@
 import React from "react";
 import { useCountryDetails } from "../contexts/Context";
-import ControlledAccordion from "./ControlledAccordian";
+import ControlledAccordion from "./Accordian";
 
 const months = [
   "January",

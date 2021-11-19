@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { blueGrey } from "@mui/material/colors";
 import { Container } from "@mui/material";
 import { styled } from "@mui/system";
+import TravelAdviceDetails from "./TravelAdviceDetails";
 
 const StyledAccordian = styled(Accordion)`
   margin-bottom: 3px;
@@ -64,14 +65,7 @@ export default function ControlledAccordion({ details, tempData }) {
           <Typography>Travel Advice</Typography>
         </StyledAccordianSummary>
         {details.advise.UA ? (
-          <>
-            <AccordionDetails>
-              <Typography>{details.advise.UA.advise}</Typography>
-              <a href={details.advise.CA.url} target="_blank">
-                {details.advise.CA.url}
-              </a>
-            </AccordionDetails>
-          </>
+          <TravelAdviceDetails travelAdvise={details.advise} />
         ) : (
           <></>
         )}
