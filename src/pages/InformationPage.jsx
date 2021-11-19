@@ -24,7 +24,7 @@ export default function InformationPage() {
         const response = await fetch(countryUrl);
         const data = await response.json();
         setDetails(data);
-        console.log(data);
+        // console.log(data);
       } catch (err) {
         console.log(err);
       }

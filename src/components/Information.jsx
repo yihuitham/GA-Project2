@@ -18,12 +18,12 @@ const months = [
 ];
 export default function Information() {
   const [details, setDetails] = useCountryDetails();
-  console.log(details);
+  // console.log(details);
   const tempData = months.map((month) => {
     const avgTemp = details.weather[month].tAvg;
     return [month, Math.round(avgTemp * 10) / 10];
   });
-  console.log(tempData);
+  // console.log(tempData);
 
   return <ControlledAccordion details={details} tempData={tempData} />;
 }

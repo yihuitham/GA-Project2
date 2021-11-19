@@ -7,7 +7,7 @@ import { useCountriesList } from "./contexts/Context";
 
 function App() {
   const countriesArray = useCountriesList();
-  console.log(countriesArray);
+  // console.log(countriesArray);
 
   return (
     <main>

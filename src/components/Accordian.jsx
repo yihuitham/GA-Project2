@@ -33,12 +33,12 @@ export default function ControlledAccordion({ details, tempData }) {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  console.log("temperature", tempData);
+  // console.log("temperature", tempData);
 
   return (
     <Container sx={{ my: 2 }}>
       <StyledAccordian
-        disabled={details.advise.UA ? false : true}
+        // disabled={details.advise.CA ? false : true}
         expanded={expanded === "travel-advice"}
         onChange={handleChange("travel-advice")}
       >
@@ -49,10 +49,10 @@ export default function ControlledAccordion({ details, tempData }) {
         >
           <Typography>Travel Advice</Typography>
         </StyledAccordianSummary>
-        {details.advise.UA ? (
-          <TravelAdviceDetails travelAdvise={details.advise} />
+        {details.advise.CA ? (
+          <TravelAdviceDetails travelAdvise={details.advise.CA} />
         ) : (
-          <></>
+          <TravelAdviceDetails travelAdvise={details.advise.UA} />
         )}
       </StyledAccordian>
       <StyledAccordian

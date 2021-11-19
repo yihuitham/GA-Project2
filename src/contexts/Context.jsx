@@ -22,7 +22,7 @@ const getCountriesList = async () => {
   try {
     const response = await fetch(listOfCountriesUrl);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     const filterData = data.filter((country) => {
       return !countriesToExclude.find((xCountry) => {
         return xCountry === country.name;
@@ -57,7 +57,7 @@ export default function DataProvider({ children }) {
       const countriesWithImages = await Promise.all(
         sliceCountries.map(async (country) => {
           country.img = await fetchPixabayByQuery(country.name);
-          console.log(country);
+          // console.log(country);
           return country;
         })
       );

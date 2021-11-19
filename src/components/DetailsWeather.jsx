@@ -9,11 +9,11 @@ import { AcUnitOutlined, BeachAccess, WbSunny } from "@mui/icons-material";
 import AccordionDetails from "@mui/material/AccordionDetails";
 
 export default function DetailsWeather({ tempData }) {
-  console.log("tempData", tempData);
+  // console.log("tempData", tempData);
   const temperatureLine = tempData.map((temp, i, { length }) => {
     if (length - 1 !== i) {
       return (
-        <AccordionDetails>
+        <AccordionDetails key={i}>
           <TimelineItem>
             <TimelineOppositeContent>{temp[0]}</TimelineOppositeContent>
             <TimelineSeparator>
@@ -31,7 +31,7 @@ export default function DetailsWeather({ tempData }) {
       );
     } else {
       return (
-        <AccordionDetails>
+        <AccordionDetails key={i}>
           <TimelineItem>
             <TimelineOppositeContent>{temp[0]}</TimelineOppositeContent>
             <TimelineSeparator>
