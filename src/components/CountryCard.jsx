@@ -10,7 +10,7 @@ import { blueGrey } from "@mui/material/colors";
 export default function CountryCard(index, img, country, advice) {
   return (
     <Card>
-      <CardActionArea component={Link} to={`/${country}`}>
+      <CardActionArea component={Link} to={`/${country}`} onClick={}>
         <CardMedia component="img" height="140" image={img} alt={country} />
         <CardContent
           sx={{

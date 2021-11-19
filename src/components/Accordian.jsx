@@ -1,16 +1,15 @@
 import React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import TempTimeline from "./DetailsWeather";
 import { Container } from "@mui/material";
 import { styled } from "@mui/system";
 import TravelAdviceDetails from "./DetailsTravelAdvise";
 import DetailsElectricity from "./DetailsElectricity";
 import DetailsTelephone from "./DetailsTelephone";
 import DetailsWeather from "./DetailsWeather";
+import DetailsVaccinations from "./DetailsVaccinations";
 
 const StyledAccordian = styled(Accordion)`
   margin-bottom: 3px;
@@ -36,14 +35,6 @@ export default function ControlledAccordion({ details, tempData }) {
   };
   console.log("temperature", tempData);
 
-  const vaccinations = details.vaccinations.map((vac, i) => {
-    return (
-      <div key={i}>
-        <Typography style={{ fontWeight: 600 }}>{vac.name}:</Typography>
-        <Typography>{vac.message}</Typography>
-      </div>
-    );
-  });
   return (
     <Container sx={{ my: 2 }}>
       <StyledAccordian
@@ -102,7 +93,7 @@ export default function ControlledAccordion({ details, tempData }) {
         >
           <Typography>Vaccinations</Typography>
         </StyledAccordianSummary>
-        <AccordionDetails>{vaccinations}</AccordionDetails>
+        <DetailsVaccinations vaccinations={details.vaccinations} />
       </StyledAccordian>
       <StyledAccordian
         expanded={expanded === "weather"}

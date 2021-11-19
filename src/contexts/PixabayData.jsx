@@ -43,7 +43,7 @@ function PixabayData() {
     <div>
       <h1>Test Pixabay Data</h1>
       <div>{JSON.stringify(data)}</div>
-      <img src={data} />
+      <img src={data} alt="country" />
     </div>
   );
 }

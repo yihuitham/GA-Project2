@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useCountriesList, useFilteredList } from "../contexts/Context";
-import { color } from "@mui/system";
 
 export default function SearchInput() {
   const [countries, setCountries] = useCountriesList();
@@ -12,7 +10,6 @@ export default function SearchInput() {
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
   const inputValue = useRef("");
-  const [input, setInput] = useState("");
 
   const handleChange = () => {
     console.log(inputValue.current.value);
