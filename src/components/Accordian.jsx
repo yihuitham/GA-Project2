@@ -4,13 +4,13 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import TempTimeline from "./TempTimeLine";
-import { Link } from "react-router-dom";
-import { blueGrey } from "@mui/material/colors";
+import TempTimeline from "./DetailsWeather";
 import { Container } from "@mui/material";
 import { styled } from "@mui/system";
 import TravelAdviceDetails from "./DetailsTravelAdvise";
 import DetailsElectricity from "./DetailsElectricity";
+import DetailsTelephone from "./DetailsTelephone";
+import DetailsWeather from "./DetailsWeather";
 
 const StyledAccordian = styled(Accordion)`
   margin-bottom: 3px;
@@ -29,7 +29,6 @@ const StyledExpandIcon = styled(ExpandMoreIcon)`
 `;
 
 export default function ControlledAccordion({ details, tempData }) {
-  const available = true;
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -89,14 +88,7 @@ export default function ControlledAccordion({ details, tempData }) {
         >
           <Typography>Telephone</Typography>
         </StyledAccordianSummary>
-        <AccordionDetails>
-          <Typography>
-            Calling code: +{details.telephone.calling_code}
-          </Typography>
-          <Typography>Police: {details.telephone.police}</Typography>
-          <Typography>Ambulance: {details.telephone.ambulance}</Typography>
-          <Typography>Fire Ambulance: {details.telephone.fire}</Typography>
-        </AccordionDetails>
+        <DetailsTelephone telephone={details.telephone} />
       </StyledAccordian>
       <StyledAccordian
         disabled={details.vaccinations[0] ? false : true}
@@ -123,9 +115,7 @@ export default function ControlledAccordion({ details, tempData }) {
         >
           <Typography>Weather</Typography>
         </StyledAccordianSummary>
-        <AccordionDetails>
-          <TempTimeline tempData={tempData} />
-        </AccordionDetails>
+        <DetailsWeather tempData={tempData} />
       </StyledAccordian>
     </Container>
   );
