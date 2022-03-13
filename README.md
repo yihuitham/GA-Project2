@@ -1,5 +1,20 @@
 # Project 2 - Travel Briefing
 
+## MVP
+
+- **Build a web application using create-react-app**. Must be your own work.
+- **Use React framework** to build your application with _at least_
+  - 3 components
+  - 4 props
+  - 2 state properties
+  - 2 setState
+  - 2 routes
+  - 3 different reach hooks
+- **Use 3rd party API and/or Firestore**
+  - API call with Axios and display the data for the user. You may use any API of your choosing or [Find an available API here](https://github.com/public-apis/public-apis)
+  - You may also opt to use Firebase/Firestore if you need to store data.
+- **Craft a `README.md` file that explains your app** to the world. [README Template](https://github.com/SEI2-jeddah/README-Template/blob/master/README.md)
+
 ## Website
 
 [https://yihuitham.github.io/GA-Project2/](https://yihuitham.github.io/GA-Project2/)
