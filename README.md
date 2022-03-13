@@ -11,9 +11,9 @@
   - 2 routes
   - 3 different reach hooks
 - **Use 3rd party API and/or Firestore**
-  - API call with Axios and display the data for the user. You may use any API of your choosing or [Find an available API here](https://github.com/public-apis/public-apis)
+  - API call with Axios and display the data for the user. You may use any API of your choosing.
   - You may also opt to use Firebase/Firestore if you need to store data.
-- **Craft a `README.md` file that explains your app** to the world. [README Template](https://github.com/SEI2-jeddah/README-Template/blob/master/README.md)
+- **Craft a `README.md` file that explains your app** to the world.
 
 ## About
 
