@@ -15,10 +15,6 @@
   - You may also opt to use Firebase/Firestore if you need to store data.
 - **Craft a `README.md` file that explains your app** to the world. [README Template](https://github.com/SEI2-jeddah/README-Template/blob/master/README.md)
 
-## Website
-
-[https://yihuitham.github.io/GA-Project2/](https://yihuitham.github.io/GA-Project2/)
-
 ## About
 
 This website has a list of countries for you to choose from. It provides you with the following information on each country:
@@ -28,6 +24,10 @@ This website has a list of countries for you to choose from. It provides you wit
 - Telephone e.g. calling code, emergency hotlines
 - Recommended vaccinations to get before visiting the country e.g. Hepatitis A, Malaria
 - Weather, average temperature for each month
+
+## Website
+
+[https://yihuitham.github.io/GA-Project2/](https://yihuitham.github.io/GA-Project2/)
 
 ## APIs
 
